@@ -1,7 +1,7 @@
+import { filterResults } from './util'
 
-
-export const getEditionKeys = (query) => {
-  console.log(`http://openlibrary.org/search.json?q=${query}`)
+export const getValidBooks = (query) => {
   return fetch(`http://openlibrary.org/search.json?q=${query}`)
-    .then(response => console.log(response.json()))
+    .then(response => response.json())
+    .then(results => console.log(filterResults(results)))
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getEditionKeys } from '../../api_calls';
+import { getValidBooks } from '../../api_calls';
 import { formatSearch } from '../../util';
 
 export const Search = () => {
@@ -7,7 +7,7 @@ export const Search = () => {
 
   const handleSearch = event => {
     if (event.key === 'Enter') {
-      getEditionKeys(formatSearch(query))
+      getValidBooks(formatSearch(query))
     }
   }
 

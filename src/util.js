@@ -4,3 +4,8 @@ export const formatSearch = (query) => {
   }
   return query
 }
+
+export const filterResults = (searchResults) => {
+  console.log(searchResults.docs)
+  return searchResults.docs.filter(result => result.cover_i > 0)
+}
