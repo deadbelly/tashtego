@@ -1,11 +1,16 @@
+import React, { useState } from 'react';
 import './App.css';
+import { Search }from '../Search/Search';
+import { AvailableBooks }from '../AvailableBooks/AvailableBooks';
 
-function App() {
+export const App = () => {
+  const [searchResults, setSearchResults] = useState([]);
+
+
   return (
     <div className="App">
-      PLACEHOLDER
+      <Search setSearchResults={setSearchResults}/>
+      <AvailableBooks searchResults={searchResults}/>
     </div>
   );
 }
-
-export default App;
