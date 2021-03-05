@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { Search }from '../Search/Search'
+import { Search }from '../Search/Search';
 
 export const App = () => {
+  const [searchResults, setSearchResults] = useState([]);
+
+
   return (
     <div className="App">
-      <Search />
+      <Search setSearchResults={setSearchResults}/>
     </div>
   );
 }

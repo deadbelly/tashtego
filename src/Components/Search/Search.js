@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch } from '../../util';
 
-export const Search = () => {
+export const Search = ({ setSearchResults }) => {
   const [query, setQuery] = useState('')
 
-  const handleSearch = event => {
+  const handleSearch = async event => {
     if (event.key === 'Enter') {
-      getValidBooks(formatSearch(query))
+      setSearchResults(await getValidBooks(formatSearch(query)))
     }
   }
 
