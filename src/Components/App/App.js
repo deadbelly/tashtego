@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Search }from '../Search/Search';
-import { AvailableBooks }from '../AvailableBooks/AvailableBooks';
+import { Search } from '../Search/Search';
+import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
+import { NavBar } from '../NavBar/NavBar';
 
 export const App = () => {
   const [readingList, setReadingList] = useState([]);
@@ -21,6 +22,7 @@ export const App = () => {
         searchResults={searchResults}
         addBook={addBook}
       />
+      <NavBar />
     </div>
   );
 }
