@@ -1,11 +1,13 @@
 import React from 'react'
 import './AvailableBooks.css'
 
-export const AvailableBooks = ({ searchResults }) => {
+export const AvailableBooks = ({ searchResults, addBook }) => {
+
   const bookList = searchResults.map(book =>
       <div
         className='book'
         tabIndex='0'
+        onClick={() => addBook(book)}
       >
         <img
           key={book.id}
