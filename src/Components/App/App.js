@@ -15,7 +15,7 @@ export const App = () => {
     if (readingList.length && !activeBook.id) {
       setActiveBook({
         ...readingList[0],
-        time: moment().add(15, 'days').calendar()
+        date: moment().add(15, 'days').format('YYYY-MM-DD')
       })
       setReadingList(readingList.splice(1))
     }
@@ -31,7 +31,10 @@ export const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={ () =>
-        <ActiveBook book={activeBook} />
+          <ActiveBook
+            book={activeBook}
+            setActiveBook={setActiveBook}
+          />
       }/>
       <Route exact path='/search' render={ () =>
         <Search addBook={addBook} />
