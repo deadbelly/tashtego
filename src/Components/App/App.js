@@ -31,10 +31,11 @@ export const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={ () =>
+        (activeBook.id &&
           <ActiveBook
             book={activeBook}
             setActiveBook={setActiveBook}
-          />
+          />)
       }/>
       <Route exact path='/search' render={ () =>
         <Search addBook={addBook} />
