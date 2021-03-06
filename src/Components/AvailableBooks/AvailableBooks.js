@@ -13,6 +13,7 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
         <img
           className='cover'
           src={book.cover}
+          alt={book.alt}
         />
         <h2>{book.title}</h2>
         <h3> by {book.authors[0]}</h3>
