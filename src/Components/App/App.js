@@ -20,7 +20,10 @@ export const App = () => {
         <Search addBook={addBook} />
       }/>
       <Route exact path='/list' render={ () =>
-        <ReadingList readingList={readingList} />
+        <ReadingList
+          readingList={readingList}
+          setReadingList={setReadingList}
+        />
       }/>
       <NavBar />
     </div>
