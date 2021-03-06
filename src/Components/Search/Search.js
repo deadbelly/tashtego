@@ -5,26 +5,33 @@ import { formatSearch } from '../../util';
 import './Search.css'
 
 export const Search = ({ addBook }) => {
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async (event, mobileKeyboard) => {
-    if (event.key === 'Enter' || mobileKeyboard) {
-      setSearchResults(await getValidBooks(formatSearch(query)))
+  const handleSearch = async (event, mobileSearch) => {
+    event.preventDefault()
+    if (event.key === 'Enter' || mobileSearch) {
+      event.target.blur()
+      setSearchResults([]);
+      setSearchResults(await getValidBooks(formatSearch(query)));
     }
   }
 
   return (
     <>
-      <div className='search-bar'>
+      <form
+        className='search-bar'
+        action='.'
+        onSubmit={event => handleSearch(event, true)}
+      >
         <input
+          name='search'
           value={query}
-          type='text'
+          type='search'
           onChange={event => setQuery(event.target.value)}
           onKeyUp={handleSearch}
-          onBlur={event => handleSearch(event, true)}
         />
-      </div>
+      </form>
       <main>
         <AvailableBooks
           searchResults={searchResults}
