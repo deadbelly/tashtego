@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 import './ActiveBook.css';
 
 export const ActiveBook = ({ book, setActiveBook, changeActive }) => {
-
+  useEffect(() => {
+    if (book.date <= moment().format('YYYY-MM-DD')) {
+      changeActive(false)
+    }
+  }, [book, changeActive])
 
   return (
     <div className='active-book'>

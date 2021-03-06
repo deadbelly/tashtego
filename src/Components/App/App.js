@@ -28,7 +28,7 @@ export const App = () => {
     }
   };
 
-  const changeActive = (isReturned) => {
+  const changeActive = isReturned => {
     if (isReturned) {
       setReadingList([ ...readingList, activeBook])
     }
