@@ -9,6 +9,9 @@ export const NavBar = () => {
       <Link to='/' >
         <button className='navbtn'>Home</button>
       </Link>
+      <Link to='/list' >
+        <button className='navbtn'>List</button>
+      </Link>
       <Link to='/search' >
         <button className='navbtn'>Search</button>
       </Link>

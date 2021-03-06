@@ -5,14 +5,15 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
 
   const bookList = searchResults.map(book =>
       <div
+        key={book.id}
         className='book'
         tabIndex='0'
         onClick={() => addBook(book)}
       >
         <img
-          key={book.id}
           className='cover'
           src={book.cover}
+          alt={book.alt}
         />
         <h2>{book.title}</h2>
         <h3> by {book.authors[0]}</h3>
@@ -24,8 +25,8 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
     )
 
   return (
-    <>
+    <div className='search-results'>
       {bookList}
-    </>
+    </div>
   )
 }

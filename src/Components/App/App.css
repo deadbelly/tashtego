@@ -2,6 +2,6 @@
   text-align: center;
 }
 
-.search-results {
-  overflow-y: scroll;
+main {
+  overflow: hidden;
 }

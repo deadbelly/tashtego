@@ -6,8 +6,11 @@ export const formatSearch = (query) => {
 }
 
 export const filterResults = (searchResults) => {
-  console.log(searchResults.docs)
-  return searchResults.docs.filter(result => result.cover_i > 0)
+  return searchResults.docs.filter(result => (
+    result.cover_i > 0 &&
+    result.cover_edition_key &&
+    result.author_name
+  ))
 }
 
 export const formatBook = (bookData) => {
@@ -17,6 +20,7 @@ export const formatBook = (bookData) => {
     authors: bookData.author_name,
     pubYear: bookData.first_publish_year,
     editions: bookData.edition_count,
-    cover: `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`
+    cover: `https://covers.openlibrary.org/b/id/${bookData.cover_i}-L.jpg`,
+    alt: `${bookData.title} cover`
   }
 }

@@ -1,0 +1,6 @@
+.search-results {
+  overflow-y: scroll;
+  height: 89vh;
+  margin-top: 6vh;
+  width: 100%;
+}

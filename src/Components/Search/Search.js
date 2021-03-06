@@ -24,7 +24,7 @@ export const Search = ({ addBook }) => {
           onKeyUp={handleSearch}
         />
       </div>
-      <main className='search-results'>
+      <main>
         <AvailableBooks
           searchResults={searchResults}
           addBook={addBook}
