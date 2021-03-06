@@ -28,11 +28,19 @@ export const App = () => {
     }
   };
 
-  const changeActive = isReturned => {
-    if (isReturned) {
-      setReadingList([ ...readingList, activeBook])
+  const changeActive = (modKey, modValue, returnBook) => {
+    if (returnBook) {
+      setReadingList([ ...readingList, activeBook]);
     }
-    setActiveBook({id: null})
+
+    if (modKey && modValue) {
+      setActiveBook({
+        ...activeBook,
+        [modKey]: modValue
+      })
+    } else {
+      setActiveBook({id: null});
+    }
   }
 
   return (
@@ -41,7 +49,6 @@ export const App = () => {
         (activeBook.id &&
           <ActiveBook
             book={activeBook}
-            setActiveBook={setActiveBook}
             changeActive={changeActive}
           />)
       }/>

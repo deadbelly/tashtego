@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 import './ActiveBook.css';
 
-export const ActiveBook = ({ book, setActiveBook, changeActive }) => {
+export const ActiveBook = ({ book, changeActive }) => {
   useEffect(() => {
     if (book.date <= moment().format('YYYY-MM-DD')) {
-      changeActive(false)
+      changeActive(null, null, false)
     }
   }, [book, changeActive])
 
@@ -23,20 +23,17 @@ export const ActiveBook = ({ book, setActiveBook, changeActive }) => {
           type='date'
           min={moment().format('YYYY-MM-DD')}
           value={book.date}
-          onChange={event => setActiveBook({
-            ...book,
-            date: event.target.value
-          })}
+          onChange={event => changeActive('date', event.target.value, false)}
         />
       </h3>
       <div className='controls'>
         <button
           className='return-btn'
-          onClick={() => changeActive(true)}
+          onClick={() => changeActive(null, null, true)}
         >Return to List</button>
         <button
           className='finished-btn'
-          onClick={() => changeActive(false)}
+          onClick={() => changeActive(null, null, false)}
         >Finished</button>
       </div>
     </div>
