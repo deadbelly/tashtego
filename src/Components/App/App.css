@@ -4,4 +4,9 @@
 
 main {
   overflow: hidden;
+  width: 100vw;
+}
+
+input {
+  font-size: 1.2em;
 }

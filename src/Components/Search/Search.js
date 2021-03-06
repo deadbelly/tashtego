@@ -8,8 +8,8 @@ export const Search = ({ addBook }) => {
   const [query, setQuery] = useState('')
   const [searchResults, setSearchResults] = useState([]);
 
-  const handleSearch = async event => {
-    if (event.key === 'Enter') {
+  const handleSearch = async (event, mobileKeyboard) => {
+    if (event.key === 'Enter' || mobileKeyboard) {
       setSearchResults(await getValidBooks(formatSearch(query)))
     }
   }
@@ -22,6 +22,7 @@ export const Search = ({ addBook }) => {
           type='text'
           onChange={event => setQuery(event.target.value)}
           onKeyUp={handleSearch}
+          onBlur={event => handleSearch(event, true)}
         />
       </div>
       <main>
