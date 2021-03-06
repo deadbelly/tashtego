@@ -1,12 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.css'
 
 export const NavBar = () => {
   return (
-    <footer className='navbar'>
+    <div className='navbar'>
       <button className='navbtn'>Options</button>
-      <button className='navbtn'>Home</button>
-      <button className='navbtn'>Search</button>
-    </footer>
+      <Link to='/' >
+        <button className='navbtn'>Home</button>
+      </Link>
+      <Link to='/search' >
+        <button className='navbtn'>Search</button>
+      </Link>
+    </div>
   )
 }
