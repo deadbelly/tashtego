@@ -24,8 +24,8 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
     )
 
   return (
-    <>
+    <div className='search-results'>
       {bookList}
-    </>
+    </div>
   )
 }
