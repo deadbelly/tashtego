@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch } from '../../util';
+import './Search.css'
 
 export const Search = ({ setSearchResults }) => {
   const [query, setQuery] = useState('')
@@ -12,11 +13,13 @@ export const Search = ({ setSearchResults }) => {
   }
 
   return (
-    <input
-      value={query}
-      type='text'
-      onChange={event => setQuery(event.target.value)}
-      onKeyUp={handleSearch}
-    />
+    <div className='search-bar'>
+      <input
+        value={query}
+        type='text'
+        onChange={event => setQuery(event.target.value)}
+        onKeyUp={handleSearch}
+      />
+    </div>
   )
 }

@@ -18,10 +18,12 @@ export const App = () => {
   return (
     <div className="App">
       <Search setSearchResults={setSearchResults}/>
-      <AvailableBooks
-        searchResults={searchResults}
-        addBook={addBook}
-      />
+      <div className='search-results'>
+        <AvailableBooks
+          searchResults={searchResults}
+          addBook={addBook}
+        />
+      </div>
       <NavBar />
     </div>
   );

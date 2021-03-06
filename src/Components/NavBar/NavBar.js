@@ -1,11 +1,12 @@
 import React from 'react';
+import './NavBar.css'
 
 export const NavBar = () => {
   return (
-    <span>
+    <footer className='navbar'>
       <button className='navbtn'>Options</button>
       <button className='navbtn'>Home</button>
       <button className='navbtn'>Search</button>
-    </span>
+    </footer>
   )
 }
