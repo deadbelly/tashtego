@@ -28,6 +28,13 @@ export const App = () => {
     }
   };
 
+  const changeActive = (isReturned) => {
+    if (isReturned) {
+      setReadingList([ ...readingList, activeBook])
+    }
+    setActiveBook({id: null})
+  }
+
   return (
     <div className="App">
       <Route exact path='/' render={ () =>
@@ -35,6 +42,7 @@ export const App = () => {
           <ActiveBook
             book={activeBook}
             setActiveBook={setActiveBook}
+            changeActive={changeActive}
           />)
       }/>
       <Route exact path='/search' render={ () =>

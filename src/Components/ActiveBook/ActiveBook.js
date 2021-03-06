@@ -2,7 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import './ActiveBook.css';
 
-export const ActiveBook = ({ book, setActiveBook }) => {
+export const ActiveBook = ({ book, setActiveBook, changeActive }) => {
+
+
   return (
     <div className='active-book'>
       <img
@@ -23,6 +25,16 @@ export const ActiveBook = ({ book, setActiveBook }) => {
           })}
         />
       </h3>
+      <div className='controls'>
+        <button
+          className='return-btn'
+          onClick={() => changeActive(true)}
+        >Return to List</button>
+        <button
+          className='finished-btn'
+          onClick={() => changeActive(false)}
+        >Finished</button>
+      </div>
     </div>
   );
 }
