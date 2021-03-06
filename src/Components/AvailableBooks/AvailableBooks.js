@@ -5,12 +5,12 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
 
   const bookList = searchResults.map(book =>
       <div
+        key={book.id}
         className='book'
         tabIndex='0'
         onClick={() => addBook(book)}
       >
         <img
-          key={book.id}
           className='cover'
           src={book.cover}
         />

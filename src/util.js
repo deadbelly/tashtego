@@ -6,8 +6,10 @@ export const formatSearch = (query) => {
 }
 
 export const filterResults = (searchResults) => {
-  console.log(searchResults.docs)
-  return searchResults.docs.filter(result => result.cover_i > 0)
+  return searchResults.docs.filter(result => (
+    result.cover_i > 0 &&
+    result.cover_edition_key
+  ))
 }
 
 export const formatBook = (bookData) => {
