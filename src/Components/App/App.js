@@ -3,6 +3,7 @@ import './App.css';
 import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
 import { ReadingList } from '../ReadingList/ReadingList';
+import { ActiveBook } from '../ActiveBook/ActiveBook';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
 
@@ -29,6 +30,9 @@ export const App = () => {
 
   return (
     <div className="App">
+      <Route exact path='/' render={ () =>
+        <ActiveBook book={activeBook} />
+      }/>
       <Route exact path='/search' render={ () =>
         <Search addBook={addBook} />
       }/>

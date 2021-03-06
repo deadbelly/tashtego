@@ -1,6 +1,6 @@
 import React from 'react'
-import 'ActiveBook.css'
+import './ActiveBook.css'
 
-export default ActiveBook = () => {
+export const ActiveBook = () => {
   return true
 }
