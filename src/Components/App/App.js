@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Search }from '../Search/Search';
-import { AvailableBooks }from '../AvailableBooks/AvailableBooks';
+import { Search } from '../Search/Search';
+import { NavBar } from '../NavBar/NavBar';
+import { Route } from 'react-router-dom';
 
 export const App = () => {
   const [readingList, setReadingList] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
 
   const addBook = newBook => {
     if (!readingList.filter(book => book.id === newBook.id).length) {
@@ -16,11 +16,10 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Search setSearchResults={setSearchResults}/>
-      <AvailableBooks
-        searchResults={searchResults}
-        addBook={addBook}
-      />
+      <Route exact path='/search' render={ () =>
+        <Search addBook={addBook} />
+      }/>
+      <NavBar />
     </div>
   );
 }
