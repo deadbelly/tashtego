@@ -7,7 +7,7 @@ export const Settings = ({ settings, setSettings }) => {
       ...settings,
       [event.target.name]:
         (event.target.type === 'number' ?
-          event.target.value :
+          parseInt(event.target.value) :
           event.target.checked)
     })
   }
