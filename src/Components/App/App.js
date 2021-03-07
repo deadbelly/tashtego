@@ -66,6 +66,7 @@ export const App = () => {
           <ActiveBook
             book={activeBook}
             changeActive={changeActive}
+            isDateLocked={settings.lockDate}
           />)
       }/>
       <Route exact path='/search' render={() =>
@@ -78,7 +79,7 @@ export const App = () => {
         <ReadingList
           readingList={readingList}
           setReadingList={setReadingList}
-          isLocked={settings.lockList}
+          isListLocked={settings.lockList}
         />
       }/>
       <Route exact path='/settings' render={() =>

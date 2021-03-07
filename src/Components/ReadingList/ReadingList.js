@@ -2,7 +2,7 @@ import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './ReadingList.css';
 
-export const ReadingList = ({ readingList, setReadingList, isLocked }) => {
+export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
   const removeBook = id => {
     setReadingList(readingList.filter(book => book.id !== id));
   }
@@ -12,7 +12,7 @@ export const ReadingList = ({ readingList, setReadingList, isLocked }) => {
       <Draggable
       key={book.id}
       draggableId={book.id.toString()}
-      isDragDisabled={isLocked}
+      isDragDisabled={isListLocked}
       index={index}
       >
         {(provided) => (

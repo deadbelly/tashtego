@@ -3,7 +3,7 @@ import moment from 'moment';
 import './ActiveBook.css';
 import { findRemainingDays } from '../../util';
 
-export const ActiveBook = ({ book, changeActive }) => {
+export const ActiveBook = ({ book, changeActive, isDateLocked }) => {
   useEffect(() => {
     if (book.date <= moment().format('YYYY-MM-DD')) {
       changeActive(null, null, false)
@@ -36,6 +36,7 @@ export const ActiveBook = ({ book, changeActive }) => {
             type='date'
             min={moment().format('YYYY-MM-DD')}
             value={book.date}
+            disabled={isDateLocked}
             onChange={event => changeActive('date', event.target.value, false)}
           />
         </h3>
