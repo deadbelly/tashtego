@@ -24,3 +24,11 @@ export const formatBook = (bookData) => {
     alt: `${bookData.title} cover`
   }
 }
+
+export const formatAuthors = (authors) => {
+  if (authors.length > 1) {
+    return authors.join(', ')
+  }
+
+  return authors[0]
+}

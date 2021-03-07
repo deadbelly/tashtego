@@ -1,6 +1,33 @@
 .search-results {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1em;
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 89vh;
   margin-top: 6vh;
   width: 100%;
+  padding: 0.4em;
+}
+
+.book {
+  width: 90%;
+  line-height: 0.5em;
+  padding: 0.4em;
+  margin-left: 0.4em;
+  box-shadow: 3px 3px 10px 0 rgba(142, 137, 137, 0.8),
+      -5px -5px 14px 0 rgba(223, 219, 219, 0.8);
+}
+
+h3 {
+  line-height: 1em;
+}
+
+.cover {
+  width: 100%;
+}
+
+.small-details {
+  display: flex;
+  justify-content: space-around;
 }

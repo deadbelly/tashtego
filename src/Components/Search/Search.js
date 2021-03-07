@@ -9,9 +9,9 @@ export const Search = ({ addBook }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async (event, mobileSearch) => {
-    event.preventDefault()
+    event.preventDefault();
     if (event.key === 'Enter' || mobileSearch) {
-      event.target.blur()
+      event.target.blur();
       setSearchResults([]);
       setSearchResults(await getValidBooks(formatSearch(query)));
     }
