@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import moment from 'moment';
 import './ActiveBook.css';
 import { findRemainingDays } from '../../util';
+import PropTypes from 'prop-types';
 
 export const ActiveBook = ({ book, changeActive, isDateLocked }) => {
   useEffect(() => {
