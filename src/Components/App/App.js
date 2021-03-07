@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
 import { ReadingList } from '../ReadingList/ReadingList';
 import { ActiveBook } from '../ActiveBook/ActiveBook';
 import { Settings } from '../Settings/Settings';
-import { Error } from '../Error/Error';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
 import { useLocalStorage } from '../../util';
@@ -20,7 +19,6 @@ export const App = () => {
     defaultDays: 15
     }
   );
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (readingList.length && !activeBook.id) {
@@ -79,7 +77,6 @@ export const App = () => {
         <Search
           addBook={addBook}
           checkIfListed={checkIfListed}
-          setError={setError}
         />
       }/>
       <Route exact path='/list' render={() =>
@@ -95,7 +92,6 @@ export const App = () => {
           setSettings={setSettings}
         />
       }/>
-      {error && <Error error={error} />}
       <Route path='/' component={NavBar} />
     </div>
   );

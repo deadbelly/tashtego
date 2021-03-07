@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
+import { Error } from '../Error/Error';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch, useLocalStorage } from '../../util';
 import './Search.css'
 import PropTypes from 'prop-types';
 
-export const Search = ({ addBook, checkIfListed, setError }) => {
+export const Search = ({ addBook, checkIfListed }) => {
   const [query, setQuery] = useLocalStorage('query', '');
   const [searchResults, setSearchResults] = useLocalStorage('searchResults', []);
+  const [error, setError] = useState(null);
 
   const handleSearch = async (event, mobileSearch) => {
     event.preventDefault();
@@ -16,6 +18,7 @@ export const Search = ({ addBook, checkIfListed, setError }) => {
       setSearchResults([]);
       setSearchResults(
         await getValidBooks(formatSearch(query))
+          // .then(response => setError(null))
           .catch(err => {
             console.log(err)
             setError(err)
@@ -45,6 +48,9 @@ export const Search = ({ addBook, checkIfListed, setError }) => {
           addBook={addBook}
           checkIfListed={checkIfListed}
         />
+      }
+      {error &&
+        <Error error={error} />
       }
     </>
   )
