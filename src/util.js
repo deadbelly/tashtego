@@ -35,7 +35,5 @@ export const formatAuthors = authors => {
 }
 
 export const findRemainingDays = date => {
-  console.log(date)
-  console.log(moment().format('YYYY-MM-DD'))
   return moment(date, 'YYYY-MM-DD').fromNow()
 }
