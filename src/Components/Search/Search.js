@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, from 'react';
 import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { getValidBooks } from '../../api_calls';
-import { formatSearch } from '../../util';
+import { formatSearch, useLocalStorage } from '../../util';
 import './Search.css'
 
 export const Search = ({ addBook, checkIfListed }) => {
-  const [query, setQuery] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useLocalStorage('query', '');
+  const [searchResults, setSearchResults] = useLocalStorage('searchResults', []);
 
   const handleSearch = async (event, mobileSearch) => {
     event.preventDefault();

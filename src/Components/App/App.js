@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
@@ -7,11 +7,12 @@ import { ActiveBook } from '../ActiveBook/ActiveBook';
 import { Settings } from '../Settings/Settings';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
+import { useLocalStorage } from '../../util';
 
 export const App = () => {
-  const [readingList, setReadingList] = useState([]);
-  const [activeBook, setActiveBook] = useState({id: null});
-  const [settings, setSettings] = useState(
+  const [readingList, setReadingList] = useLocalStorage('readingList', []);
+  const [activeBook, setActiveBook] = useLocalStorage('activeBook', {id: null});
+  const [settings, setSettings] = useLocalStorage('settings',
     {
     lockList: false,
     lockDate: false,
