@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch, useLocalStorage } from '../../util';
