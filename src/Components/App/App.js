@@ -26,7 +26,7 @@ export const App = () => {
       && activeBook.id !== newBook.id) {
       setReadingList([ ...readingList, newBook])
     }
-  };
+  }
 
   const changeActive = (modKey, modValue, returnBook) => {
     if (returnBook) {

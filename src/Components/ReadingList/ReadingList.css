@@ -22,3 +22,13 @@
   width: 20%;
   height: 20%;
 }
+
+.item-info {
+  text-align: center;
+  width: 65%;
+}
+
+.list-num {
+  width: 10%;
+  text-align: right;
+}
