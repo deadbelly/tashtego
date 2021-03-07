@@ -44,3 +44,9 @@ export const ActiveBook = ({ book, changeActive, isDateLocked }) => {
     </div>
   );
 }
+
+ActiveBook.propTypes = {
+  book: PropTypes.object,
+  changeActive: PropTypes.func,
+  isDateLocked: PropTypes.bool
+}
