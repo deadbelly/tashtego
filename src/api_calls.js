@@ -1,4 +1,5 @@
 import { filterResults, formatBook } from './util'
+import { trackPromise} from 'react-promise-tracker';
 
 const parseResponse = response => {
   if (response.ok) {
@@ -9,8 +10,8 @@ const parseResponse = response => {
 }
 
 export const getValidBooks = query => {
-  return fetch(`http://openlibrary.org/search.json?q=${query}`)
+  return trackPromise(fetch(`http://openlibrary.org/search.json?q=${query}`)
     .then(response => parseResponse(response))
     .then(results => filterResults(results))
-    .then(results => results.map(bookData => formatBook(bookData)))
+    .then(results => results.map(bookData => formatBook(bookData))))
 }
