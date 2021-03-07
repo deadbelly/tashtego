@@ -4,7 +4,6 @@ import './NavBar.css'
 
 export const NavBar = () => {
   const checkPath = path => {
-    console.log(window.location.pathname)
     if (window.location.pathname.toString() === path) {
       return 'toggled'
     }

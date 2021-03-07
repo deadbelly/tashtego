@@ -1,11 +1,13 @@
-export const formatSearch = (query) => {
+import moment from 'moment';
+
+export const formatSearch = query => {
   if (query.includes(' ')) {
     return query.split(' ').join('+')
   }
   return query
 }
 
-export const filterResults = (searchResults) => {
+export const filterResults = searchResults => {
   return searchResults.docs.filter(result => (
     result.cover_i > 0 &&
     result.cover_edition_key &&
@@ -13,7 +15,7 @@ export const filterResults = (searchResults) => {
   ))
 }
 
-export const formatBook = (bookData) => {
+export const formatBook = bookData => {
   return {
     id: bookData.cover_edition_key,
     title: bookData.title,
@@ -25,10 +27,15 @@ export const formatBook = (bookData) => {
   }
 }
 
-export const formatAuthors = (authors) => {
+export const formatAuthors = authors => {
   if (authors.length > 1) {
     return authors.join(', ')
   }
-
   return authors[0]
+}
+
+export const findRemainingDays = date => {
+  console.log(date)
+  console.log(moment().format('YYYY-MM-DD'))
+  return moment(date, 'YYYY-MM-DD').fromNow()
 }

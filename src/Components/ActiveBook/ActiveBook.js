@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import moment from 'moment';
 import './ActiveBook.css';
+import { findRemainingDays } from '../../util';
 
 export const ActiveBook = ({ book, changeActive }) => {
   useEffect(() => {
@@ -11,31 +12,33 @@ export const ActiveBook = ({ book, changeActive }) => {
 
   return (
     <div className='active-book'>
-      <img
-        className='active-cover'
-        src={book.cover}
-        alt={book.alt}
-      />
-      <h1>{book.title}</h1>
-      <h2> by {book.authors[0]}</h2>
-      <h3> Completion Date
-        <input
-          type='date'
-          min={moment().format('YYYY-MM-DD')}
-          value={book.date}
-          onChange={event => changeActive('date', event.target.value, false)}
+        <img
+          className='active-cover'
+          src={book.cover}
+          alt={book.alt}
         />
-      </h3>
       <div className='controls'>
         <button
-          className='return-btn'
+          className='controlbtn'
           onClick={() => changeActive(null, null, true)}
         >Return to List</button>
         <button
-          className='finished-btn'
+          className='controlbtn'
           onClick={() => changeActive(null, null, false)}
         >Finished</button>
       </div>
+      <h1>{book.title}</h1>
+      <h2> by {book.authors[0]}</h2>
+        <h3>
+          You expect to finish {findRemainingDays(book.date)}
+          <input
+            className='datectrl'
+            type='date'
+            min={moment().format('YYYY-MM-DD')}
+            value={book.date}
+            onChange={event => changeActive('date', event.target.value, false)}
+          />
+        </h3>
     </div>
   );
 }
