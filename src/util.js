@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { useState } from 'react';
 
 export const formatSearch = query => {
   if (query.includes(' ')) {
@@ -36,4 +37,29 @@ export const formatAuthors = authors => {
 
 export const findRemainingDays = date => {
   return moment(date, 'YYYY-MM-DD').fromNow()
+}
+
+export const useLocalStorage = (storageKey, defaultState) => {
+  const [storedState, setStoredState] = useState(() => {
+    try {
+      const savedState = window.localStorage.getItem(storageKey);
+      return savedState ? JSON.parse(savedState) : defaultState;
+    } catch (error) {
+      console.log(error);
+      return defaultState;
+    }
+  });
+
+  const setterFunction = state => {
+    try {
+      const stateToStore =
+        state instanceof Function ? state(storedState) : state;
+      setStoredState(stateToStore);
+      window.localStorage.setItem(storageKey, JSON.stringify(stateToStore));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return [storedState, setterFunction];
 }
