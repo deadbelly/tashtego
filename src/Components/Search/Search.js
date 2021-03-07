@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { Error } from '../Error/Error';
+import { Loader } from '../Loader/Loader';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch, useLocalStorage } from '../../util';
 import './Search.css'
@@ -42,15 +43,18 @@ export const Search = ({ addBook, checkIfListed }) => {
           onKeyUp={handleSearch}
         />
       </form>
-      { searchResults &&
+      { searchResults.length &&
         <AvailableBooks
           searchResults={searchResults}
           addBook={addBook}
           checkIfListed={checkIfListed}
         />
       }
-      {error &&
+      { error &&
         <Error error={error} />
+      }
+      { !searchResults.length && !error &&
+        <Loader />
       }
     </>
   )
