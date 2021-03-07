@@ -27,7 +27,7 @@ export const App = () => {
       })
       setReadingList(readingList.splice(1))
     }
-  }, [readingList, activeBook])
+  }, [readingList, activeBook, settings.defaultDays])
 
   const addBook = newBook => {
     if (!readingList.filter(book => book.id === newBook.id).length

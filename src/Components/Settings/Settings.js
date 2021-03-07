@@ -2,7 +2,6 @@ import React from 'react';
 
 export const Settings = ({ settings, setSettings }) => {
   const updateSettings = event => {
-    console.log(event.target.checked)
     setSettings({
       ...settings,
       [event.target.name]:
