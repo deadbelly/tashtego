@@ -4,26 +4,35 @@ import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
 import { ReadingList } from '../ReadingList/ReadingList';
 import { ActiveBook } from '../ActiveBook/ActiveBook';
+import { Settings } from '../Settings/Settings';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
 
 export const App = () => {
   const [readingList, setReadingList] = useState([]);
   const [activeBook, setActiveBook] = useState({id: null});
+  const [settings, setSettings] = useState(
+    {
+    lockList: false,
+    lockDate: false,
+    defaultDays: 15
+    }
+  );
 
   useEffect(() => {
     if (readingList.length && !activeBook.id) {
       setActiveBook({
         ...readingList[0],
-        date: moment().add(15, 'days').format('YYYY-MM-DD')
+        date: moment().add(settings.defaultDays + 1, 'days').format('YYYY-MM-DD')
       })
       setReadingList(readingList.splice(1))
     }
-  }, [readingList, activeBook])
+  }, [readingList, activeBook, settings.defaultDays])
 
   const addBook = newBook => {
     if (!readingList.filter(book => book.id === newBook.id).length
-      && activeBook.id !== newBook.id) {
+      && activeBook.id !== newBook.id
+      && !settings.lockList) {
       setReadingList([ ...readingList, newBook])
     }
   }
@@ -53,23 +62,31 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Route exact path='/' render={ () =>
+      <Route exact path='/' render={() =>
         (activeBook.id &&
           <ActiveBook
             book={activeBook}
             changeActive={changeActive}
+            isDateLocked={settings.lockDate}
           />)
       }/>
-      <Route exact path='/search' render={ () =>
+      <Route exact path='/search' render={() =>
         <Search
           addBook={addBook}
           checkIfListed={checkIfListed}
         />
       }/>
-      <Route exact path='/list' render={ () =>
+      <Route exact path='/list' render={() =>
         <ReadingList
           readingList={readingList}
           setReadingList={setReadingList}
+          isListLocked={settings.lockList}
+        />
+      }/>
+      <Route exact path='/settings' render={() =>
+        <Settings
+          settings={settings}
+          setSettings={setSettings}
         />
       }/>
       <Route path='/' component={NavBar} />

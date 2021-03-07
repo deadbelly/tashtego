@@ -12,7 +12,9 @@ export const NavBar = () => {
 
   return (
     <div className='navbar'>
-      <button className='navbtn'>Options</button>
+      <Link to='/settings' >
+        <button className={`navbtn ${checkPath('/settings')}`}>Settings</button>
+      </Link>
       <Link to='/' >
         <button className={`navbtn ${checkPath('/')}`}>Home</button>
       </Link>
