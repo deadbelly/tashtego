@@ -72,7 +72,7 @@ export const App = () => {
           setReadingList={setReadingList}
         />
       }/>
-      <NavBar />
+      <Route path='/' component={NavBar} />
     </div>
   );
 }
