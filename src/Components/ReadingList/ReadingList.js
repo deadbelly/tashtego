@@ -16,8 +16,15 @@ export const ReadingList = ({ readingList, setReadingList }) => {
             key={book.id}
             ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
           >
-            <h2>{book.title}</h2>
-            <h3> by {book.authors[0]}</h3>
+            <img
+              className='thumbnail'
+              src={book.cover}
+              alt={book.alt}
+            />
+            <div>
+              <h2>{book.title}</h2>
+              <h3> by {book.authors[0]}</h3>
+            </div>
           </div>
         )}
       </Draggable>
