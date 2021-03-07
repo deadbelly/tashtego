@@ -2,12 +2,12 @@ import React from 'react'
 import './AvailableBooks.css'
 import { formatAuthors } from '../../util'
 
-export const AvailableBooks = ({ searchResults, addBook }) => {
+export const AvailableBooks = ({ searchResults, addBook, checkIfListed }) => {
 
   const bookList = searchResults.map(book =>
       <div
         key={book.id}
-        className='book'
+        className={`book ${checkIfListed(book.id)}`}
         tabIndex='0'
         onClick={() => addBook(book)}
       >

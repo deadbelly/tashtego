@@ -4,7 +4,7 @@ import { getValidBooks } from '../../api_calls';
 import { formatSearch } from '../../util';
 import './Search.css'
 
-export const Search = ({ addBook }) => {
+export const Search = ({ addBook, checkIfListed }) => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
@@ -36,6 +36,7 @@ export const Search = ({ addBook }) => {
         <AvailableBooks
           searchResults={searchResults}
           addBook={addBook}
+          checkIfListed={checkIfListed}
         />
       </main>
     </>
