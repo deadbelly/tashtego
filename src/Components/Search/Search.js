@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch } from '../../util';
-import './Search.css'
+import './Search.css';
+import PropTypes from 'prop-types';
 
 export const Search = ({ addBook, checkIfListed }) => {
   const [query, setQuery] = useState('');
@@ -41,4 +42,9 @@ export const Search = ({ addBook, checkIfListed }) => {
       </main>
     </>
   )
+}
+
+Search.propTypes = {
+  addBook: PropTypes.func,
+  checkIfListed: PropTypes.func
 }
