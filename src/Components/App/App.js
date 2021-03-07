@@ -78,6 +78,7 @@ export const App = () => {
         <ReadingList
           readingList={readingList}
           setReadingList={setReadingList}
+          isLocked={settings.lockList}
         />
       }/>
       <Route exact path='/settings' render={() =>

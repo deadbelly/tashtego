@@ -29,7 +29,6 @@ export const Settings = ({ settings, setSettings }) => {
       <input
         name='defaultDays'
         type='number'
-        checked={null}
         value={settings.defaultDays}
         onChange={updateSettings}
       />
