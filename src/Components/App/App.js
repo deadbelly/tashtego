@@ -5,6 +5,7 @@ import { NavBar } from '../NavBar/NavBar';
 import { ReadingList } from '../ReadingList/ReadingList';
 import { ActiveBook } from '../ActiveBook/ActiveBook';
 import { Settings } from '../Settings/Settings';
+import { Error } from '../Error/Error';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
 import { useLocalStorage } from '../../util';

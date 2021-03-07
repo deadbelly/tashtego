@@ -5,7 +5,7 @@ import { formatSearch, useLocalStorage } from '../../util';
 import './Search.css'
 import PropTypes from 'prop-types';
 
-export const Search = ({ addBook, checkIfListed }) => {
+export const Search = ({ addBook, checkIfListed, setError }) => {
   const [query, setQuery] = useLocalStorage('query', '');
   const [searchResults, setSearchResults] = useLocalStorage('searchResults', []);
 
@@ -14,7 +14,13 @@ export const Search = ({ addBook, checkIfListed }) => {
     if (event.key === 'Enter' || mobileSearch) {
       event.target.blur();
       setSearchResults([]);
-      setSearchResults(await getValidBooks(formatSearch(query)));
+      setSearchResults(
+        await getValidBooks(formatSearch(query))
+          .catch(err => {
+            console.log(err)
+            setError(err)
+          })
+      );
     }
   }
 
@@ -33,13 +39,13 @@ export const Search = ({ addBook, checkIfListed }) => {
           onKeyUp={handleSearch}
         />
       </form>
-      <main>
+      { searchResults &&
         <AvailableBooks
           searchResults={searchResults}
           addBook={addBook}
           checkIfListed={checkIfListed}
         />
-      </main>
+      }
     </>
   )
 }
