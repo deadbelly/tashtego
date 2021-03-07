@@ -31,7 +31,8 @@ export const App = () => {
 
   const addBook = newBook => {
     if (!readingList.filter(book => book.id === newBook.id).length
-      && activeBook.id !== newBook.id) {
+      && activeBook.id !== newBook.id
+      && !settings.lockList) {
       setReadingList([ ...readingList, newBook])
     }
   }
