@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
@@ -19,6 +19,7 @@ export const App = () => {
     defaultDays: 15
     }
   );
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (readingList.length && !activeBook.id) {
@@ -77,6 +78,7 @@ export const App = () => {
         <Search
           addBook={addBook}
           checkIfListed={checkIfListed}
+          setError={setError}
         />
       }/>
       <Route exact path='/list' render={() =>
@@ -92,6 +94,7 @@ export const App = () => {
           setSettings={setSettings}
         />
       }/>
+      {error && <Error error={error} />}
       <Route path='/' component={NavBar} />
     </div>
   );
