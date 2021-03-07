@@ -31,6 +31,7 @@ export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
               <h3> by {book.authors[0]}</h3>
               <button
                 className='controlbtn'
+                disabled={isListLocked}
                 onClick={() => removeBook(book.id)}
               >Remove</button>
             </div>
