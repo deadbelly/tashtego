@@ -1,12 +1,13 @@
 import React from 'react'
 import './AvailableBooks.css'
+import { formatAuthors } from '../../util'
 
-export const AvailableBooks = ({ searchResults, addBook }) => {
+export const AvailableBooks = ({ searchResults, addBook, checkIfListed }) => {
 
   const bookList = searchResults.map(book =>
       <div
         key={book.id}
-        className='book'
+        className={`book ${checkIfListed(book.id)}`}
         tabIndex='0'
         onClick={() => addBook(book)}
       >
@@ -16,8 +17,8 @@ export const AvailableBooks = ({ searchResults, addBook }) => {
           alt={book.alt}
         />
         <h2>{book.title}</h2>
-        <h3> by {book.authors[0]}</h3>
-        <div>
+        <h3> by {formatAuthors(book.authors)}</h3>
+        <div className='small-details'>
           <p> First Published: {book.pubYear}</p>
           <p> Editions: {book.editions}</p>
         </div>

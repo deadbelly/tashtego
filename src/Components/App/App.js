@@ -26,7 +26,7 @@ export const App = () => {
       && activeBook.id !== newBook.id) {
       setReadingList([ ...readingList, newBook])
     }
-  };
+  }
 
   const changeActive = (modKey, modValue, returnBook) => {
     if (returnBook) {
@@ -43,6 +43,14 @@ export const App = () => {
     }
   }
 
+  const checkIfListed = id => {
+    if (readingList.filter(book => book.id === id).length ||
+      activeBook.id === id) {
+      return 'on-list'
+    }
+    return ''
+  }
+
   return (
     <div className="App">
       <Route exact path='/' render={ () =>
@@ -53,7 +61,10 @@ export const App = () => {
           />)
       }/>
       <Route exact path='/search' render={ () =>
-        <Search addBook={addBook} />
+        <Search
+          addBook={addBook}
+          checkIfListed={checkIfListed}
+        />
       }/>
       <Route exact path='/list' render={ () =>
         <ReadingList
@@ -61,7 +72,7 @@ export const App = () => {
           setReadingList={setReadingList}
         />
       }/>
-      <NavBar />
+      <Route path='/' component={NavBar} />
     </div>
   );
 }

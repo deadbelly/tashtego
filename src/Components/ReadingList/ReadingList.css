@@ -1,0 +1,36 @@
+.reading-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1em;
+  overflow-y: scroll;
+  height: 95vh;
+  padding: 1em;
+}
+
+.list-item {
+  width: 95%;
+  line-height: 1.2em;
+  padding: 0.7em;
+  box-shadow: 3px 3px 10px #8e8989,
+      -5px -5px 14px  #dfdbdb;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  margin-right: 5em;
+}
+
+.thumbnail {
+  align-self: center;
+  width: 20%;
+  height: 20%;
+}
+
+.item-info {
+  text-align: center;
+  width: 65%;
+}
+
+.list-num {
+  width: 10%;
+  text-align: right;
+}

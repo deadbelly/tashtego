@@ -1,7 +1,25 @@
 .navbar {
-  border: 3px solid black;
-  height: 5vh;
+  height: 10vh;
   bottom: 0;
   position: fixed;
   width: 100%;
+  background-color: #efdecd;
+}
+
+.navbtn {
+  height: 7vh;
+  width: 20vw;
+  background-color: #fff5ee;
+  border: none;
+  color: #44413c;
+  box-shadow: 1px 1px 1px #8e8989,
+    -1px -1px 1px #dfdbdb;
+  border-radius: 10px;
+  margin: 0.5em;
+}
+
+.toggled {
+  background-color: #efdecd;
+  box-shadow: inset 1px 1px 3px #8e8989,
+    -1px -1px 3px #dfdbdb;
 }

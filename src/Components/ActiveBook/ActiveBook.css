@@ -1,0 +1,35 @@
+.active-book {
+  padding: 1em;
+  line-height: 1.5em;
+}
+
+.active-cover {
+  width: 60%;
+}
+
+.active-upper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controlbtn {
+  width: 30%;
+  height: 7vh;
+  background-color: #efdecd;
+  border: none;
+  color: #44413c;
+  box-shadow: 1px 1px 1px #8e8989,
+    -1px -1px 1px #dfdbdb;
+  border-radius: 10px;
+  margin: 0.5em;
+}
+
+.datectrl {
+  font-size: 1em;
+}
