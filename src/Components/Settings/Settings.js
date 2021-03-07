@@ -1,4 +1,5 @@
 import React from 'react';
+import './Settings.css'
 
 export const Settings = ({ settings, setSettings }) => {
   const updateSettings = event => {
@@ -12,25 +13,28 @@ export const Settings = ({ settings, setSettings }) => {
   }
 
   return (
-    <>
+    <div className='settings'>
+      <label htmlFor='lockList'>Lock List</label>
       <input
         name='lockList'
         type='checkbox'
         checked={settings.lockList}
         onChange={updateSettings}
       />
+        <label htmlFor='lockDate'>Lock Date</label>
       <input
         name='lockDate'
         type='checkbox'
         checked={settings.lockDate}
         onChange={updateSettings}
       />
+      <label htmlFor='defaultDays'>Default Days</label>
       <input
         name='defaultDays'
         type='number'
         value={settings.defaultDays}
         onChange={updateSettings}
       />
-    </>
+    </div>
   )
 }
