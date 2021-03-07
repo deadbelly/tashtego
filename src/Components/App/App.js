@@ -4,6 +4,7 @@ import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
 import { ReadingList } from '../ReadingList/ReadingList';
 import { ActiveBook } from '../ActiveBook/ActiveBook';
+import { Settings } from '../Settings/Settings';
 import { Route } from 'react-router-dom';
 import moment from 'moment';
 
@@ -53,23 +54,27 @@ export const App = () => {
 
   return (
     <div className="App">
-      <Route exact path='/' render={ () =>
+      <Route exact path='/' render={() =>
         (activeBook.id &&
           <ActiveBook
             book={activeBook}
             changeActive={changeActive}
           />)
       }/>
-      <Route exact path='/search' render={ () =>
+      <Route exact path='/search' render={() =>
         <Search
           addBook={addBook}
           checkIfListed={checkIfListed}
         />
       }/>
-      <Route exact path='/list' render={ () =>
+      <Route exact path='/list' render={() =>
         <ReadingList
           readingList={readingList}
           setReadingList={setReadingList}
+        />
+      }/>
+      <Route exact path='/settings' render={() =>
+        <Settings
         />
       }/>
       <Route path='/' component={NavBar} />
