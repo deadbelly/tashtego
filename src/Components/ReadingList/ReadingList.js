@@ -1,6 +1,7 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './ReadingList.css';
+import PropTypes from 'prop-types';
 
 export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
   const removeBook = id => {
@@ -69,4 +70,10 @@ export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
       </Droppable>
     </DragDropContext>
   )
+}
+
+ReadingList.propTypes = {
+  readingList: PropTypes.arrayOf(PropTypes.object),
+  setReadingList: PropTypes.func,
+  isListLocked: PropTypes.bool
 }

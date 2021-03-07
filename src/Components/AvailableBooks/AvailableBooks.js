@@ -1,6 +1,7 @@
 import React from 'react'
 import './AvailableBooks.css'
 import { formatAuthors } from '../../util'
+import PropTypes from 'prop-types';
 
 export const AvailableBooks = ({ searchResults, addBook, checkIfListed }) => {
 
@@ -30,4 +31,10 @@ export const AvailableBooks = ({ searchResults, addBook, checkIfListed }) => {
       {bookList}
     </div>
   )
+}
+
+AvailableBooks.propTypes = {
+  searchResults: PropTypes.arrayOf(PropTypes.object),
+  addBook: PropTypes.func,
+  checkIfListed: PropTypes.func
 }

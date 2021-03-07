@@ -3,6 +3,7 @@ import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch, useLocalStorage } from '../../util';
 import './Search.css'
+import PropTypes from 'prop-types';
 
 export const Search = ({ addBook, checkIfListed }) => {
   const [query, setQuery] = useLocalStorage('query', '');
@@ -41,4 +42,9 @@ export const Search = ({ addBook, checkIfListed }) => {
       </main>
     </>
   )
+}
+
+Search.propTypes = {
+  addBook: PropTypes.func,
+  checkIfListed: PropTypes.func
 }
