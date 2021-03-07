@@ -11,6 +11,13 @@ import moment from 'moment';
 export const App = () => {
   const [readingList, setReadingList] = useState([]);
   const [activeBook, setActiveBook] = useState({id: null});
+  const [settings, setSettings] = useState(
+    {
+    lockList: false,
+    lockDate: false,
+    defaultDays: 15
+    }
+  );
 
   useEffect(() => {
     if (readingList.length && !activeBook.id) {
@@ -75,6 +82,8 @@ export const App = () => {
       }/>
       <Route exact path='/settings' render={() =>
         <Settings
+          settings={settings}
+          setSettings={setSettings}
         />
       }/>
       <Route path='/' component={NavBar} />
