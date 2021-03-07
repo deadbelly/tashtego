@@ -1,5 +1,6 @@
 import React from 'react';
-import './Settings.css'
+import './Settings.css';
+import PropTypes from 'prop-types';
 
 export const Settings = ({ settings, setSettings }) => {
   const updateSettings = event => {
@@ -37,4 +38,9 @@ export const Settings = ({ settings, setSettings }) => {
       />
     </div>
   )
+}
+
+Settings.propTypes = {
+  settings: PropTypes.object,
+  setSettings: PropTypes.func
 }
