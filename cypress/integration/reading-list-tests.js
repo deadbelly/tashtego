@@ -33,6 +33,22 @@ describe('ReadingList Integration', () => {
   });
 
   it('Should let the user re-organize the order', () => {
-    cy.get('.list-item')
+    cy.get('.searchbtn').click();
+    cy.get('.book').eq(2).click();
+    cy.get('.listbtn').click();
+    cy.get('h2').first().should('contain', 'Herman Melville\'s Moby-Dick');
+    cy.get('.list-item').first()
+      .focus().type(' ').type('{downArrow}').type(' ');
+    cy.get('h2').first().should('contain', 'Moby Dick');
+  });
+
+  it('Should let the user put active books back on the list', () => {
+    cy.get('.list-item').should('have.length', 1);
+    cy.get('h3').should('contain', 'Harold Bloom');
+    cy.get('.homebtn').click();
+    cy.get('button').contains('Return to List').click();
+    cy.get('.listbtn').click();
+    cy.get('.list-item').should('have.length', 1);
+    cy.get('h3').should('contain', 'Herman Melville');
   });
 });
