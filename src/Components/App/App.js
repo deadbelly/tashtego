@@ -66,12 +66,16 @@ export const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() =>
-        (activeBook.id &&
+        (activeBook.id ?
           <ActiveBook
             book={activeBook}
             changeActive={changeActive}
             isDateLocked={settings.lockDate}
-          />)
+          /> :
+          <h1 className='landing-message'>
+          It looks like there's nothing here! <br/>
+          Trying searching for some books to add to your list!</h1>
+        )
       }/>
       <Route exact path='/search' render={() =>
         <Search

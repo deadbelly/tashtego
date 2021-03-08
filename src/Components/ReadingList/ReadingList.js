@@ -55,6 +55,11 @@ export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
 
   return (
     <DragDropContext onDragEnd={handleDrop}>
+      {!readingList.length &&
+        <h1 className='landing-message'>
+        It looks like there's nothing here! <br/>
+        Trying searching for some books to add to your list!</h1>
+      }
       <Droppable droppableId="books">
         {provided => (
             <ul

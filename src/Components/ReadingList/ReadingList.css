@@ -3,7 +3,7 @@
   grid-template-columns: 1fr;
   grid-row-gap: 1em;
   overflow-y: scroll;
-  height: 95vh;
+  height: 84.5vh;
   padding: 1em;
   align-items: start;
 }

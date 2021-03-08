@@ -39,6 +39,7 @@ export const Search = ({ addBook, checkIfListed }) => {
           name='search'
           value={query}
           type='search'
+          placeholder='search for a book'
           onChange={event => setQuery(event.target.value)}
           onKeyUp={handleSearch}
         />
