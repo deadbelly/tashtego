@@ -24,7 +24,7 @@ export const App = () => {
     if (readingList.length && !activeBook.id) {
       setActiveBook({
         ...readingList[0],
-        date: moment().add(settings.defaultDays, 'days').format('YYYY-MM-DD')
+        date: moment().add(settings.defaultDays + 1, 'days').format('YYYY-MM-DD')
       })
       setReadingList(readingList.splice(1))
     }

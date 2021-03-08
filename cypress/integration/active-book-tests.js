@@ -32,14 +32,14 @@ describe('ActiveBook Integration', () => {
   });
 
   it('Should have a listed time to completion', () => {
-    cy.get('h3').should('contain', 'You expect to finish in 14 days');
+    cy.get('h3').should('contain', 'You expect to finish in 15 days');
   });
 
   it('Should let the user change the completion date', () => {
-    cy.get('h3').should('contain', 'You expect to finish in 14 days');
-    cy.get('.datectrl').type(moment().add(20, 'days').format('YYYY-MM-DD'),
+    cy.get('h3').should('contain', 'You expect to finish in 15 days');
+    cy.get('.datectrl').type(moment().add(21, 'days').format('YYYY-MM-DD'),
       {force: true});
-    cy.get('h3').should('contain', 'You expect to finish in 19 days');
+    cy.get('h3').should('contain', 'You expect to finish in 20 days');
   });
 
   it('Should let the user return a book to the list', () => {
