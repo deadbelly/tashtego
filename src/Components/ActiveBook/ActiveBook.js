@@ -28,7 +28,7 @@ export const ActiveBook = ({ book, changeActive, isDateLocked }) => {
         <h1>{book.title}</h1>
         <h2> by {formatAuthors(book.authors)}</h2>
           <h3>
-            You expect to finish {findRemainingDays(book.date)}
+            You expect to finish {findRemainingDays(book.date)} 
             <input
               className='datectrl'
               type='date'

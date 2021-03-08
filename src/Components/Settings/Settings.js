@@ -15,27 +15,42 @@ export const Settings = ({ settings, setSettings }) => {
 
   return (
     <div className='settings'>
-      <label htmlFor='lockList'>Lock List</label>
-      <input
-        name='lockList'
-        type='checkbox'
-        checked={settings.lockList}
-        onChange={updateSettings}
-      />
+      <h1>
+        <label htmlFor='lockList'>Lock List</label>
+        <input
+          className='setting-input'
+          name='lockList'
+          type='checkbox'
+          checked={settings.lockList}
+          onChange={updateSettings}
+        />
+      </h1>
+      <h2>This option prevents you from adding or removing books
+      from your reading list</h2>
+      <h1>
         <label htmlFor='lockDate'>Lock Date</label>
-      <input
-        name='lockDate'
-        type='checkbox'
-        checked={settings.lockDate}
-        onChange={updateSettings}
-      />
-      <label htmlFor='defaultDays'>Default Days</label>
-      <input
-        name='defaultDays'
-        type='number'
-        value={settings.defaultDays}
-        onChange={updateSettings}
-      />
+        <input
+          className='setting-input'
+          name='lockDate'
+          type='checkbox'
+          checked={settings.lockDate}
+          onChange={updateSettings}
+        />
+      </h1>
+      <h2>This option prevents you from changing
+      the intended completion date of a book</h2>
+      <h1>
+        <label htmlFor='defaultDays'>Default Days </label>
+        <input
+          className='setting-input'
+          name='defaultDays'
+          type='number'
+          value={settings.defaultDays}
+          onChange={updateSettings}
+        />
+      </h1>
+      <h2>This option changes the number of days you expect
+      to read a book by default</h2>
     </div>
   )
 }
