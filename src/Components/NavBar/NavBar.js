@@ -13,16 +13,24 @@ export const NavBar = () => {
   return (
     <div className='navbar'>
       <Link to='/settings' >
-        <button className={`navbtn ${checkPath('/settings')}`}>Settings</button>
+        <button
+          className={`navbtn ${checkPath('/settings')} settingsbtn`}
+        >Settings</button>
       </Link>
       <Link to='/' >
-        <button className={`navbtn ${checkPath('/')}`}>Home</button>
+        <button
+          className={`navbtn ${checkPath('/')} homebtn`}
+        >Home</button>
       </Link>
       <Link to='/list' >
-        <button className={`navbtn ${checkPath('/list')}`}>List</button>
+        <button
+          className={`navbtn ${checkPath('/list')} listbtn`}
+          >List</button>
       </Link>
       <Link to='/search' >
-        <button className={`navbtn ${checkPath('/search')}`}>Search</button>
+        <button
+          className={`navbtn ${checkPath('/search')} searchbtn`}
+        >Search</button>
       </Link>
     </div>
   )
