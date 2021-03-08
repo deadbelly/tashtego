@@ -5,6 +5,7 @@
   overflow-y: scroll;
   height: 95vh;
   padding: 1em;
+  align-items: start;
 }
 
 .list-item {

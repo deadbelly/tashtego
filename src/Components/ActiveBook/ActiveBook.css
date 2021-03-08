@@ -1,15 +1,11 @@
 .active-book {
   padding: 1em;
   line-height: 1.5em;
+  overflow: hidden;
 }
 
 .active-cover {
-  width: 70vw;
-}
-
-.active-upper {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  width: 56vw;
 }
 
 .controls {
