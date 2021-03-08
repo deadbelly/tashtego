@@ -6,6 +6,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 404);
   });
 
   it('Should inform the user of 500 errors', () => {
@@ -14,6 +15,8 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 500);
+
   });
 
   it('Should inform the user of 401 errors', () => {
@@ -22,6 +25,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 401);
   });
 
   it('Should inform the user of 502 errors', () => {
@@ -30,6 +34,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 502);
   });
 
   it('Should inform the user of 301 errors', () => {
@@ -38,6 +43,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 301);
   });
 
 
@@ -47,6 +53,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 302);
   });
 
   it('Should inform the user of 410 errors', () => {
@@ -55,6 +62,7 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 410);
   });
 
   it('Should inform the user of 503 errors', () => {
@@ -63,5 +71,6 @@ describe('Error', () => {
     cy.visit('http://localhost:3000');
     cy.get('.searchbtn').click();
     cy.get('input[name="search"]').type('moby dick {enter}');
+    cy.get('h1').should('contain', 503);
   });
 });
