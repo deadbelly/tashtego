@@ -20,26 +20,6 @@ export const App = () => {
     }
   );
 
-  useEffect(() => {
-    if (readingList.length && !activeBook.id) {
-      setActiveBook({
-        ...readingList[0],
-        date: moment().add(settings.defaultDays + 1, 'days').format('YYYY-MM-DD')
-      })
-      setReadingList(readingList.splice(1))
-    }
-  }, [readingList, setReadingList,
-    activeBook, setActiveBook,
-    settings.defaultDays])
-
-  const addBook = newBook => {
-    if (!readingList.filter(book => book.id === newBook.id).length
-      && activeBook.id !== newBook.id
-      && !settings.lockList) {
-      setReadingList([ ...readingList, newBook])
-    }
-  }
-
   const changeActive = (modKey, modValue, returnBook) => {
     if (returnBook) {
       setReadingList([ ...readingList, activeBook]);
@@ -55,6 +35,32 @@ export const App = () => {
     }
   }
 
+  useEffect(() => {
+    if (readingList.length && !activeBook.id) {
+      setActiveBook({
+        ...readingList[0],
+        date: moment().add(settings.defaultDays + 1, 'days').format('YYYY-MM-DD')
+      })
+      setReadingList(readingList.splice(1))
+    }
+  }, [readingList, setReadingList,
+    activeBook, setActiveBook,
+    settings.defaultDays])
+
+  useEffect(() => {
+    if (activeBook.date <= moment().format('YYYY-MM-DD')) {
+      changeActive(null, null, false)
+    }
+  }, [activeBook, changeActive])
+
+  const addBook = newBook => {
+    if (!readingList.filter(book => book.id === newBook.id).length
+      && activeBook.id !== newBook.id
+      && !settings.lockList) {
+      setReadingList([ ...readingList, newBook])
+    }
+  }
+
   const checkIfListed = id => {
     if (readingList.filter(book => book.id === id).length ||
       activeBook.id === id) {
@@ -66,16 +72,11 @@ export const App = () => {
   return (
     <div className="App">
       <Route exact path='/' render={() =>
-        (activeBook.id ?
           <ActiveBook
             book={activeBook}
             changeActive={changeActive}
             isDateLocked={settings.lockDate}
-          /> :
-          <h1 className='landing-message'>
-          It looks like there's nothing here! <br/>
-          Trying searching for some books to add to your list!</h1>
-        )
+          />
       }/>
       <Route exact path='/search' render={() =>
         <Search
