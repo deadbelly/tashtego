@@ -4,6 +4,7 @@ import { Error } from '../Error/Error';
 import { Loader } from '../Loader/Loader';
 import { getValidBooks } from '../../api_calls';
 import { formatSearch, useLocalStorage } from '../../util';
+import { usePromiseTracker } from "react-promise-tracker";
 import './Search.css'
 import PropTypes from 'prop-types';
 
@@ -19,7 +20,6 @@ export const Search = ({ addBook, checkIfListed }) => {
       setSearchResults([]);
       setSearchResults(
         await getValidBooks(formatSearch(query))
-          // .then(response => setError(null))
           .catch(err => {
             console.log(err)
             setError(err)
@@ -43,7 +43,8 @@ export const Search = ({ addBook, checkIfListed }) => {
           onKeyUp={handleSearch}
         />
       </form>
-      { searchResults.length &&
+      { !usePromiseTracker().promiseInProgress &&
+        searchResults &&
         <AvailableBooks
           searchResults={searchResults}
           addBook={addBook}
@@ -53,9 +54,7 @@ export const Search = ({ addBook, checkIfListed }) => {
       { error &&
         <Error error={error} />
       }
-      { !searchResults.length && !error &&
-        <Loader />
-      }
+      <Loader />
     </>
   )
 }
