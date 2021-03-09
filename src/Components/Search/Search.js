@@ -3,7 +3,7 @@ import { AvailableBooks } from '../AvailableBooks/AvailableBooks';
 import { Error } from '../Error/Error';
 import { Loader } from '../Loader/Loader';
 import { getValidBooks } from '../../api_calls';
-import { formatSearch, useLocalStorage } from '../../util';
+import { formatSearch } from '../../util';
 import { usePromiseTracker } from "react-promise-tracker";
 import './Search.css'
 import PropTypes from 'prop-types';

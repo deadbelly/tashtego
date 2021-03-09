@@ -22,21 +22,6 @@ export const App = () => {
     }
   );
 
-  const changeActive = (modKey, modValue, returnBook) => {
-    if (returnBook) {
-      setReadingList([ ...readingList, activeBook]);
-    }
-
-    if (modKey && modValue) {
-      setActiveBook({
-        ...activeBook,
-        [modKey]: modValue
-      })
-    } else {
-      setActiveBook({id: null});
-    }
-  }
-
   useEffect(() => {
     if (readingList.length && !activeBook.id) {
       setActiveBook({
@@ -53,7 +38,22 @@ export const App = () => {
     if (activeBook.date <= moment().format('YYYY-MM-DD')) {
       changeActive(null, null, false)
     }
-  }, [activeBook, changeActive])
+  })
+
+  const changeActive = (modKey, modValue, returnBook) => {
+    if (returnBook) {
+      setReadingList([ ...readingList, activeBook]);
+    }
+
+    if (modKey && modValue) {
+      setActiveBook({
+        ...activeBook,
+        [modKey]: modValue
+      })
+    } else {
+      setActiveBook({id: null});
+    }
+  }
 
   const addBook = newBook => {
     if (!readingList.filter(book => book.id === newBook.id).length
