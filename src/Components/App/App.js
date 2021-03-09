@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Search } from '../Search/Search';
 import { NavBar } from '../NavBar/NavBar';
@@ -12,6 +12,8 @@ import { useLocalStorage } from '../../util';
 export const App = () => {
   const [readingList, setReadingList] = useLocalStorage('readingList', []);
   const [activeBook, setActiveBook] = useLocalStorage('activeBook', {id: null});
+  const [query, setQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [settings, setSettings] = useLocalStorage('settings',
     {
     lockList: false,
@@ -82,6 +84,10 @@ export const App = () => {
         <Search
           addBook={addBook}
           checkIfListed={checkIfListed}
+          query={query}
+          setQuery={setQuery}
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
         />
       }/>
       <Route exact path='/list' render={() =>
