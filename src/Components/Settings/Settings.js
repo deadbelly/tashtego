@@ -45,6 +45,7 @@ export const Settings = ({ settings, setSettings }) => {
           className='setting-input'
           name='defaultDays'
           type='number'
+          min='1'
           value={settings.defaultDays}
           onChange={updateSettings}
         />
