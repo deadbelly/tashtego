@@ -8,7 +8,8 @@ import { usePromiseTracker } from "react-promise-tracker";
 import './Search.css'
 import PropTypes from 'prop-types';
 
-export const Search = ({ addBook, checkIfListed, query, setQuery, searchResults, setSearchResults }) => {
+export const Search = ({ addBook, checkIfListed, query,
+  setQuery, searchResults, setSearchResults }) => {
   const [error, setError] = useState(null);
 
   const handleSearch = async (event, mobileSearch) => {
@@ -60,5 +61,9 @@ export const Search = ({ addBook, checkIfListed, query, setQuery, searchResults,
 
 Search.propTypes = {
   addBook: PropTypes.func,
-  checkIfListed: PropTypes.func
+  checkIfListed: PropTypes.func,
+  query: PropTypes.string,
+  setQuery: PropTypes.func,
+  searchResults: PropTypes.arrayOf(PropTypes.object),
+  setSearchResults: PropTypes.func
 }
