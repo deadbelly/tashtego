@@ -50,7 +50,7 @@ export const useLocalStorage = (storageKey, defaultState) => {
     }
   });
 
-  const setterFunction = state => {
+  const storageSetterFunction = state => {
     try {
       const stateToStore =
         state instanceof Function ? state(storedState) : state;
@@ -61,5 +61,5 @@ export const useLocalStorage = (storageKey, defaultState) => {
     }
   };
 
-  return [storedState, setterFunction];
+  return [storedState, storageSetterFunction];
 }
