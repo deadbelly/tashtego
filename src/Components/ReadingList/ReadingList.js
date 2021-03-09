@@ -1,5 +1,6 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { formatAuthors } from '../../util'
 import './ReadingList.css';
 import PropTypes from 'prop-types';
 
@@ -29,7 +30,7 @@ export const ReadingList = ({ readingList, setReadingList, isListLocked }) => {
             />
             <div className='item-info'>
               <h2>{book.title}</h2>
-              <h3> by {book.authors[0]}</h3>
+              <h3> by {formatAuthors(book.authors)}</h3>
               <button
                 className='controlbtn'
                 disabled={isListLocked}
