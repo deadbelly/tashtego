@@ -8,9 +8,7 @@ import { usePromiseTracker } from "react-promise-tracker";
 import './Search.css'
 import PropTypes from 'prop-types';
 
-export const Search = ({ addBook, checkIfListed }) => {
-  const [query, setQuery] = useLocalStorage('query', '');
-  const [searchResults, setSearchResults] = useLocalStorage('searchResults', []);
+export const Search = ({ addBook, checkIfListed, query, setQuery, searchResults, setSearchResults }) => {
   const [error, setError] = useState(null);
 
   const handleSearch = async (event, mobileSearch) => {
@@ -39,6 +37,7 @@ export const Search = ({ addBook, checkIfListed }) => {
           name='search'
           value={query}
           type='search'
+          placeholder='search for a book'
           onChange={event => setQuery(event.target.value)}
           onKeyUp={handleSearch}
         />

@@ -36,3 +36,15 @@ h3 {
 .on-list {
   border: 4px solid #80FF80;
 }
+
+@media only screen and (min-width: 750px) {
+  .search-results {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .search-results {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

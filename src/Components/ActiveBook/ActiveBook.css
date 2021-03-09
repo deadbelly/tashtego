@@ -5,7 +5,7 @@
 }
 
 .active-cover {
-  width: 56vw;
+  width: 65vw;
 }
 
 .controls {
@@ -28,4 +28,35 @@
 
 .datectrl {
   font-size: 1em;
+}
+
+
+@media only screen and (min-width: 500px) {
+  .active-cover {
+    width: 45vw;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .active-cover {
+    width: 38vw;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .active-cover {
+    width: 35vw;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .active-cover {
+    width: 30vw;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .active-cover {
+    width: 20vw;
+  }
 }

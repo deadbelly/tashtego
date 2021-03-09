@@ -1,4 +1,8 @@
 .settings {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+.setting-input {
+  width: 20%;
 }
