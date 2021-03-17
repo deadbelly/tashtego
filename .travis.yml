@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "node"
+notifications:
+  email: false
+cache:
+  npm: true
+  directories:
+    - ~/.cache
+install:
+  - npm ci
+  - npm run build
+before_script:
+  - npm start -- --silent &
+script:
+  - $(npm bin)/cypress run
