@@ -1,6 +1,12 @@
 language: node_js
 node_js:
   - "node"
+
+addons:
+  chrome: stable
+  apt:
+    packages:
+      - libgconf-2-4
 notifications:
   email: false
 cache:
